@@ -1,5 +1,3 @@
-package PROGETTI.PROGETTO3.AlberoBinario;
-
 public class AlberoBinario {
 
     public AlberoBinario(NodoAlberoBinario radice) {

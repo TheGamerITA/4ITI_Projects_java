@@ -1,5 +1,3 @@
-package PROGETTI.PROGETTO3.AlberoBinario;
-
 public class Tipo {
 
     public Tipo(Tipo info) {

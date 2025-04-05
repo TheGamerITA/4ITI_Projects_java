@@ -1,5 +1,3 @@
-package PROGETTI.PROGETTO3.AlberoBinario;
-
 public class NodoAlberoBinario {
     protected Tipo info;
     protected NodoAlberoBinario psx;

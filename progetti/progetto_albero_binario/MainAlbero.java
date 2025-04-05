@@ -1,5 +1,3 @@
-package PROGETTI.PROGETTO3.AlberoBinario;
-
 public class MainAlbero {
     public static void main(String[] args) {
         Tipo rootValue = new Tipo("Radice");// Creiamo i nodi
