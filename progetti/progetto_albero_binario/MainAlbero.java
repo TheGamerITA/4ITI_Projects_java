@@ -1,26 +1,16 @@
 public class MainAlbero {
     public static void main(String[] args) {
-        Tipo rootValue = new Tipo("Radice");// Creiamo i nodi
-        NodoAlberoBinario radice = new NodoAlberoBinario(rootValue);
+        
+        NodoAlberoBinario radice = new NodoAlberoBinario(new Tipo("A"));
+        NodoAlberoBinario sinistra = new NodoAlberoBinario(new Tipo("B"));
+        NodoAlberoBinario destra = new NodoAlberoBinario(new Tipo("C"));
 
-        NodoAlberoBinario sinistro = new NodoAlberoBinario(new Tipo("Sinistro"));
-        NodoAlberoBinario destro = new NodoAlberoBinario(new Tipo("Destro"));
+        radice.setLeftChild(sinistra);
+        radice.setRightChild(destra);
 
-        radice.setLeftChild(sinistro);// Assegniamo il figlio sinistro alla radice
-        radice.setRightChild(destro);// Assegniamo il figlio destro alla radice
-
-        sinistro.setLeftChild(new NodoAlberoBinario(new Tipo("Sinistro-Sinistro")));// Aggiungiamo un nuovo livello Sinistro-Sinistro
-        sinistro.setRightChild(new NodoAlberoBinario(new Tipo("Sinistro-Destro")));// Aggiungiamo un nuovo livello Sinistro-Destro
-
-        destro.setLeftChild(new NodoAlberoBinario(new Tipo("Destro-Sinistro")));
-        destro.setRightChild(new NodoAlberoBinario(new Tipo("Destro-Destro")));
-
-        AlberoBinario albero = new AlberoBinario(radice);// Creiamo l'albero
-
-        System.out.println("Vista anticipata (preorder):");
-        albero.vistaAnticipata();
-
-        System.out.println("\nVista differita (postorder):");
-        albero.vistaDifferita();
+        System.out.println("Radice: " + radice.getInfo().getValore());
+        System.out.println("Figlio sinistro: " + radice.getLeftChild().getInfo().getValore());
+        System.out.println("Figlio destro: " + radice.getRightChild().getInfo().getValore());
     }
 }
+
