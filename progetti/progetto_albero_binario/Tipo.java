@@ -16,5 +16,8 @@ public class Tipo {
     public void esamina() {
         System.out.println("Esaminando: " + valore);
     }
-}
 
+    public void setValore(String valore) {
+        this.valore = valore;
+    }
+}

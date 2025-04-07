@@ -1,8 +1,8 @@
 public class AlberoBinario {
-
-    public AlberoBinario(NodoAlberoBinario radice) {
-    }
     protected NodoAlberoBinario ptr;//nodo della radice
+    public AlberoBinario(NodoAlberoBinario radice) {
+        this.ptr = radice;
+    }
 
     public NodoAlberoBinario getPtr() {
         return ptr;
@@ -34,5 +34,23 @@ public class AlberoBinario {
 
     public void vistaDifferita(){//richiamiamo il metodo
         vistaDifferita(ptr);
+    }
+
+    private void vistaSimmetrica(NodoAlberoBinario p){
+        if(p == null)
+            return;
+        if(p.getLeftChild() != null)
+            vistaSimmetrica(p.getLeftChild());
+        esamina(p.getInfo());
+        if(p.getRightChild() != null)
+            vistaSimmetrica(p.getRightChild());
+    }
+
+    public void vistaSimmetrica(){
+        vistaSimmetrica(ptr);
+    }
+
+    private void esamina(Tipo info) {
+        System.out.println("Esaminando: " + info.getValore());
     }
 }
