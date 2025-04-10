@@ -18,7 +18,7 @@ public class AlberoBinario {
             vistaAnticipata(p.getRightChild());//figlio sinistro
     }
 
-    public void vistaAnticipata() {//richiamiamo il metodo
+    public void vistaAnticipata() {
         vistaAnticipata(ptr);
     }
 
@@ -32,7 +32,7 @@ public class AlberoBinario {
         p.getInfo().esamina();//Una volta che si ottiene il valore di getInfo invochiamo il metodo esamina
     }
 
-    public void vistaDifferita(){//richiamiamo il metodo
+    public void vistaDifferita(){
         vistaDifferita(ptr);
     }
 
@@ -52,5 +52,26 @@ public class AlberoBinario {
 
     private void esamina(Tipo info) {
         System.out.println("Esaminando: " + info.getValore());
+    }
+
+    public void inserisciNodoRicorsivo(Tipo valore) {
+        ptr = inserisciRicorsivamente(ptr, new NodoAlberoBinario(valore));
+    }
+
+    private NodoAlberoBinario inserisciRicorsivamente(NodoAlberoBinario nodoCorrente, NodoAlberoBinario nuovoNodo) {
+        if (nodoCorrente == null) {
+            return nuovoNodo; //se viene trovato posto libero allora viene creato il noso
+        }
+
+        // Trovato il posto libero decide se metterlo a sinistra o destra
+        // Se entrambi i figli sono occupati, prova a scendere ricorsivamente andando a sinistra per semplicità
+        if (nodoCorrente.getLeftChild() == null) {
+            nodoCorrente.setLeftChild(nuovoNodo);
+        } else if (nodoCorrente.getRightChild() == null) {
+            nodoCorrente.setRightChild(nuovoNodo);
+        } else {
+            nodoCorrente.setLeftChild(inserisciRicorsivamente(nodoCorrente.getLeftChild(), nuovoNodo));
+        }
+        return nodoCorrente;
     }
 }
